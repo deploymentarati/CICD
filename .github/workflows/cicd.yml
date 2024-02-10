@@ -52,8 +52,7 @@ jobs:
         mvn test
 
     - name: Docker Login to JFrog
-      run: |
-        echo ${{ secrets.JF_PASSWORD }} | docker login -u ${{ secrets.JF_USER }} --password-stdin githubactionsjfrog.jfrog.io
+      run: echo "${{ secrets.JF_PASSWORD }}" | docker login -u "${{ secrets.JF_USER }}" --password-stdin githubactionsjfrog.jfrog.io
 
     - name: Docker Tag
       run: docker tag aratimahe/app githubactionsjfrog.jfrog.io/cicd/aratimahe/app:latest
