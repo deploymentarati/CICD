@@ -75,7 +75,7 @@ jobs:
     - name: Upload Helm chart to JFrog Artifactory
       run: |
         cd app
-        wget -O jfrog https://releases.jfrog.io/artifactory/jfrog-cli-go/jfrog-cli-linux-amd64/latest/jfrog
+        wget -O jfrog https://getcli.jfrog.io
         chmod +x jfrog
         sudo mv jfrog /usr/local/bin/
         export PATH=$PATH:/usr/local/bin
