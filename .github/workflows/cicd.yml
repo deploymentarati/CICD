@@ -64,6 +64,7 @@ jobs:
         wget -O jf https://oss.jfrog.org/jfrog-cli-go/1.45.1/jfrog-cli-linux-amd64/jfrog
         chmod +x jf
         sudo mv jf /usr/local/bin/
+        export PATH=$PATH:/usr/local/bin
         wget https://get.helm.sh/helm-v3.5.2-linux-amd64.tar.gz
         tar -xvzf helm-v3.5.2-linux-amd64.tar.gz
         sudo cp -f linux-amd64/helm /usr/bin
