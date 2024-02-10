@@ -79,4 +79,5 @@ jobs:
         chmod +x jfrog
         sudo mv jfrog /usr/local/bin/
         export PATH=$PATH:/usr/local/bin
+        jfrog rt config --url https://githubactionsjfrog.jfrog.io --user "${{ secrets.JF_USER }}" --password "${{ secrets.JF_PASSWORD }}" --interactive=false
         jfrog rt upload "helmchart-1.0.0.tgz" devsecops-guild-cloud-agonistic-helm-local
