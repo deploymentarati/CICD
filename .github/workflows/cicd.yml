@@ -80,5 +80,6 @@ jobs:
         sudo mv jfrog /usr/local/bin/
         export PATH=$PATH:/usr/local/bin
         jfrog rt c --url https://githubactionsjfrog.jfrog.io/artifactory --interactive=false
-        jfrog rt c show
+        jfrog rt config show
+        jfrog rt use default
         jfrog rt upload "helmchart-1.0.0.tgz" devsecops-guild-cloud-agonistic-helm-local
