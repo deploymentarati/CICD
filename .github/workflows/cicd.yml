@@ -61,10 +61,6 @@ jobs:
 
     - name: Build Helm Chart
       run:  |
-        wget -O jf https://oss.jfrog.org/jfrog-cli-go/1.45.1/jfrog-cli-linux-amd64/jfrog
-        chmod +x jf
-        sudo mv jf /usr/local/bin/
-        export PATH=$PATH:/usr/local/bin
         wget https://get.helm.sh/helm-v3.5.2-linux-amd64.tar.gz
         tar -xvzf helm-v3.5.2-linux-amd64.tar.gz
         sudo cp -f linux-amd64/helm /usr/bin
@@ -79,4 +75,8 @@ jobs:
     - name: Upload Helm chart to JFrog Artifactory
       run: |
         cd app
-        jf rt upload "helmchart-1.0.0.tgz" devsecops-guild-cloud-agonistic-helm-local
+        wget -O jfrog https://releases.jfrog.io/artifactory/jfrog-cli/v2/2.1.0/jfrog-cli-linux-amd64/jfrog
+        chmod +x jfrog
+        sudo mv jfrog /usr/local/bin/
+        export PATH=$PATH:/usr/local/bin
+        jfrog rt upload "helmchart-1.0.0.tgz" devsecops-guild-cloud-agonistic-helm-local
